@@ -1,0 +1,4 @@
+.idea/
+__pycache__/
+docker-solr/solr_data/
+neural/__pycache__/

@@ -1,0 +1,21 @@
+version: '1'
+services:
+  solr:
+    image: solr:9.5.0
+    ports:
+     - 8984:8983
+     - 5009:5009
+    environment:
+      SOLR_OPTS: -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5009
+    user: root
+    # command:
+    #   - solr-precreate
+    #   - dense_vector_index
+    #   - /dense
+    command: bash -c "
+      chown -R 8983:8983 /var/solr
+      && runuser -u solr -- solr-precreate /rag_index /rag"
+    volumes:
+      - ./config:/rag/conf
+      - ./solr_data:/var/solr/data/
+

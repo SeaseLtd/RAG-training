@@ -1,0 +1,26 @@
+# Solr url where the data is indexed
+solr_url: http://localhost:8984/solr/rag_index
+
+# Server port where the langchain server runs
+server_port: 8000
+
+# If you set  allenai/scibert_scivocab_uncased it is going to download it at runtime.
+# If you have already downloaded the model, you can set here the local path
+pretrained_model_path: allenai/scibert_scivocab_uncased
+
+# Min size (number of characters) of a chunk to be indexed 
+# All the chunks with fewer characters will be discarded
+min_chunk_size: 500
+
+# RAG endpoint
+# All the fields are mandatory
+endpoint:
+  - 
+    # OpenAI model name
+    model_name: "gpt-3.5-turbo-1106"
+    # The name of the endpoint. The server will be run at the address http://URL:<server_port>/<endpoint_name>/playground
+    endpoint_name: "gpt_3_5_rag"
+    # Number of rows to retrieve for the knn phase
+    knn_rows: 10 
+    # Number of rows to retrieve for the bm25 phase
+    bm25_rows: 10
