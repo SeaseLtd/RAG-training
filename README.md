@@ -82,8 +82,19 @@ python index_documents.py
 ```
 ## Run RAG server
 ```bash
-python rag.py
+python main.py
 ```
 
 ## Usage ##
-TO COMPLETE
+Start Solr:
+```bash 
+cd docker-solr;
+docker-compose up;
+```
+
+Start the RAG server:
+```bash
+python main.py
+```
+
+Make queries at: [http://0.0.0.0:8000/gpt_3_5_rag/playground/](http://0.0.0.0:8000/gpt_3_5_rag/playground/)
