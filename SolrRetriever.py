@@ -40,7 +40,7 @@ class SolrRetriever(BaseRetriever):
         documents = self.knn_query(query, VECTOR_FIELD_BODY, self.fields, self.rows)
         return [
             Document(
-                page_content=doc["bodyChunk"],
+                page_content=doc["bodyChunk"][0],
                 metadata={"id": doc["id"]},
             )
             for doc in documents

@@ -46,14 +46,14 @@ retriever = SolrRetriever(
     solr=solr,
     vector_encoder=vector_encoder,
     retrieval_type="hybrid",
-    knn_rows=endpoint["knn_rows"],
-    bm25_rows=endpoint["bm25_rows"],
+    knn_rows=endpoint[0]["knn_rows"],
+    bm25_rows=endpoint[0]["bm25_rows"],
 )
 setup_retriever = RunnableParallel(
     {"context": retriever, "question": RunnablePassthrough()}
 )
 rag_route = setup_retriever | prompt | openai_model | output_parser
-add_routes(app, rag_route, path="/" + endpoint["endpoint_name"])
+add_routes(app, rag_route, path="/" + endpoint[0]["endpoint_name"])
 
 
 uvicorn.run(app, host="0.0.0.0", port=cfg["server_port"])
