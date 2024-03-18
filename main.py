@@ -45,9 +45,7 @@ openai_model = ChatOpenAI(temperature=0, model_name=endpoint[0]["model_name"])
 retriever = SolrRetriever(
     solr=solr,
     vector_encoder=vector_encoder,
-    retrieval_type="hybrid",
-    knn_rows=endpoint[0]["knn_rows"],
-    bm25_rows=endpoint[0]["bm25_rows"],
+    rows=endpoint[0]["rows"],
 )
 setup_retriever = RunnableParallel(
     {"context": retriever, "question": RunnablePassthrough()}

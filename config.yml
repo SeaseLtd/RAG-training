@@ -20,7 +20,5 @@ endpoint:
     model_name: "gpt-3.5-turbo-1106"
     # The name of the endpoint. The server will be run at the address http://URL:<server_port>/<endpoint_name>/playground
     endpoint_name: "gpt_3_5_rag"
-    # Number of rows to retrieve for the knn phase
-    knn_rows: 10 
-    # Number of rows to retrieve for the bm25 phase
-    bm25_rows: 10
+    # Number of rows to retrieve
+    rows: 10
