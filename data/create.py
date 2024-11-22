@@ -16,7 +16,7 @@ with open("./documents_10k.tsv") as data:
     doc = "["
     for row in data:
         cleaned_text = clean_text(row[:-1])
-        doc = doc + "{\"id\": " + str(id) + ", " + "\"body\": " + "\"" + cleaned_text + " " + cleaned_text + "\"}, "
+        doc = doc + "{\"id\": " + str(id) + ", " + "\"body\": " + "\"" + cleaned_text + "\"}, "
         id = id + 1
     doc = doc[:-2] + "]"
 
