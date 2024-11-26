@@ -5,6 +5,7 @@ Here you can find everything you need to deploy a simple RAG application based o
 ## Requirements ##
 To execute the project you need:
 - Docker
+- Python
 - An access to the OpenAI APIs
 
 ## Repository content ##
@@ -64,24 +65,33 @@ docker-compose up;
 ```
 Solr will be available at [https://localhost:8984/](https://localhost:8984)
 
+To run Python scripts, install the requirements:
+```bash 
+pip install -r requirements.txt;
+```
+
 ## Generate documents ###
 **You can skip this step if you want to use the already provided material.**
 To generate documents:
-````
+````bash 
+cd data;
 python create.py
 ````
 
 To generate chunked documents:
-````
+````bash 
+cd chunking;
 python chunk.py
 ````
 
 ## Index documents
 ```bash
-python index_documents.py
+cd solr-tools;
+python index_documents.py "<path to>/RAG-training/data/solr_documents_with_chunks.json"
 ```
 ## Run RAG server
 ```bash
+export OPENAI_API_KEY="<your-api-key-here>"
 python main.py
 ```
 

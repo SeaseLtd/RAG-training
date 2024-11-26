@@ -5,6 +5,7 @@ import logging
 from globals import INDEX_BATCH_SIZE, ENCODE_BATCH_SIZE
 from tqdm import tqdm
 import yaml
+import sys
 
 log = logging.getLogger("index_document")
 logging.basicConfig()
@@ -31,7 +32,7 @@ def index_document(file_name: str, solr: Solr, encoder: VectorEncoder.VectorEnco
 
 
 def main():
-    input_data = "/Users/sease/Desktop/Repositories/RAG-training/data/solr_documents_with_chunks.json"
+    input_data = sys.argv[1]
 
     with open("../config.yml", "r") as ymlfile:
         cfg = yaml.safe_load(ymlfile)

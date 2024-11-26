@@ -1,3 +1,12 @@
-spacy
-langchain
-regex
+spacy==3.8.2
+langchain==0.3.8
+langserve==0.3.0
+langchain_community==0.3.8
+regex==2024.11.6
+transformers==4.46.3
+torch==2.5.1
+pysolr==3.10.0
+uvicorn==0.32.1
+fastapi==0.115.5
+openai==1.55.1
+sse_starlette==2.1.3
